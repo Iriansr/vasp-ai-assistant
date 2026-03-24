@@ -8,7 +8,7 @@
 
 ## Demo
 
-![Demo][example.png]
+![Demo](example.png)
 
 An AI-powered assistant for computational materials science, designed to answer questions about VASP workflows using a hybrid **RAG + Web Search agent system**.
 
