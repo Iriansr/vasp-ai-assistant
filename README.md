@@ -15,9 +15,6 @@ The system combines:
 - 📖 Domain-specific knowledge (VASP, DFT, surface science)
 - 🧪 Answer validation to prevent hallucinations
 - 🔁 Controlled fallback (no infinite loops)
-- 💬 Chat UI with:
-  - Markdown rendering (`**bold**`, lists, etc.)
-  - LaTeX equations (`$...$`, `$$...$$`)
 - 🎨 Custom frontend UI
 
 ---
