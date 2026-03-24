@@ -1,0 +1,29 @@
+name: vasp-rag
+
+channels:
+  - conda-forge
+  - pytorch
+
+dependencies:
+  - python=3.10
+
+  - pip
+  - numpy
+  - pandas
+  - tqdm
+  - requests
+
+  - pytorch
+  - cpuonly
+
+  - pip:
+      - elasticsearch
+      - google-cloud-aiplatform
+      - transformers
+      - FlagEmbedding
+      - sentence-transformers
+      - langchain
+      - langgraph
+      - python-dotenv
+      - beautifulsoup4
+      - lxmlc

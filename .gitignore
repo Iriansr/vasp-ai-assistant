@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Env
+.env
+.venv
+venv/
+
+# Conda
+*.conda
+
+# Mac
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Elasticsearch data (si tienes)
+data/
+
+# Vertex / credentials
+*.json
+
+# Node (por si acaso)
+node_modules/

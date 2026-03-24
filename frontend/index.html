@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VASP Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+<div class="chat-container">
+
+    <div class="header">
+        <span>🟢 VASP Assistant (online)</span>
+    </div>
+
+    <div id="chat-box" class="chat-box"></div>
+
+<div class="input-container">
+    <textarea id="user-input" placeholder="Ask something..."></textarea>
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

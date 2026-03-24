@@ -1,0 +1,137 @@
+
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #f0f6ff 0%,
+        #dbeafe 100%
+    ); 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+/* centered chat */
+.chat-container {
+    width: 420px;
+    height: 650px;
+
+    display: flex;
+    flex-direction: column;
+
+    /* glass effect */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px;
+
+    background: rgba(255, 255, 255, 0.9);  /* 🔥 blanco */
+    color: black;
+
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 16px;
+    color: black;
+}
+
+.status {
+    font-size: 12px;
+    color: #00aa66;
+}
+
+/* chat */
+.chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* messages */
+.message {
+    margin: 8px 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+    font-size: 14px;
+}
+
+/* user */
+.user {
+    align-self: flex-end;
+    background: rgba(0, 123, 255, 0.8);
+    color: white;
+}
+
+/* bot */
+.bot {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+
+/* input */
+.input-container {
+    display: flex;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* input field */
+textarea {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.9);  /* 🔥 blanco */
+    color: black;
+
+    border-radius: 10px;
+    margin: 8px;
+
+    resize: none;
+    height: 50px;
+    font-family: inherit;
+}
+
+/* button */
+button {
+    background: rgba(0,123,255,0.9);
+    color: white;
+    border: none;
+    padding: 12px;
+    margin: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* placeholder visible */
+input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
