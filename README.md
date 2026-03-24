@@ -111,14 +111,14 @@ Final Answer
 
 ---
  
-🧪 Example Queries
+### 🧪 Example Queries
 	•	How to compute surface energy in VASP?
 	•	What is a k-point mesh?
 	•	How to run a band structure calculation?
 
 ---
 
- 🧠 Tech Stack
+### 🧠 Tech Stack
 	•	LLM: Vertex AI (Gemini)
 	•	Backend: FastAPI
 	•	Orchestration: LangGraph
@@ -126,14 +126,14 @@ Final Answer
 	•	Frontend: HTML / CSS / JS
 
 ---
-⚠️ Notes
+### ⚠️ Notes
 	•	Ensure Vertex AI credentials are properly configured
 	•	Elasticsearch must be running before ingestion
 	•	First ingestion may take several minutes
 
 ---
 
-📌 Future Improvements
+### 📌 Future Improvements
 	•	Streaming responses (real-time typing)
 	•	Multi-turn memory
 	•	Better reranking strategies
