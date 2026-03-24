@@ -6,8 +6,7 @@ The system combines:
 - 📚 Retrieval-Augmented Generation (RAG) over curated VASP documentation  
 - 🌐 Web search fallback for broader queries  
 - 🧠 LLM reasoning with validation and routing  
-- 💬 Custom chat interface with Markdown + LaTeX rendering  
-
+- 💬 Custom chat interface with Markdown 
 ---
 
 ## 🚀 Features
