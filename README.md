@@ -1,5 +1,15 @@
 # 🧠 VASP AI Assistant
 
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-green)
+![LangGraph](https://img.shields.io/badge/LangGraph-purple)
+![Elasticsearch](https://img.shields.io/badge/Elasticsearch-orange)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
+## Demo
+
+![Demo][example.png]
+
 An AI-powered assistant for computational materials science, designed to answer questions about VASP workflows using a hybrid **RAG + Web Search agent system**.
 
 The system combines:
