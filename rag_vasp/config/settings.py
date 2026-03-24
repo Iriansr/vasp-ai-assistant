@@ -3,7 +3,7 @@ import os
 
 
 class VertexConfig(BaseModel):
-    project: str = os.getenv("VERTEX_PROJECT", "rag-agent-488010")
+    project: str = os.getenv("VERTEX_PROJECT", "your-project")
     location: str = os.getenv("VERTEX_LOCATION", "us-central1")
     batch_size: int = 32
     model: str = "text-embedding-004"
