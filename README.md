@@ -31,7 +31,7 @@ The system combines:
 
 ## 📁 Project Structure
 ```
-full_agents/
+vasp-ai-assistant/
 │
 ├── rag_vasp/           # RAG pipeline (retriever, reranker, ingestion)
 ├── web_search/         # Web search agent
