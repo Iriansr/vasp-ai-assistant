@@ -24,7 +24,7 @@ The system combines:
 ---
 
 ## 📁 Project Structure
-
+```
 full_agents/
 │
 ├── rag_vasp/           # RAG pipeline (retriever, reranker, ingestion)
@@ -34,7 +34,7 @@ full_agents/
 ├── api/                # FastAPI backend
 ├── frontend/           # Chat UI (HTML/CSS/JS)
 └── README.md
-
+```
 ---
 
 ## ⚙️ Installation
@@ -98,7 +98,7 @@ python -m http.server 5500
 ```
 then open `http://localhost:5500`
 
-⸻
+---
 ### System flow
 
 User Query
@@ -113,14 +113,14 @@ Optional fallback → Web
    ↓
 Final Answer
 
-⸻
+---
  
 🧪 Example Queries
 	•	How to compute surface energy in VASP?
 	•	What is a k-point mesh?
 	•	How to run a band structure calculation?
 
-⸻
+---
 
  🧠 Tech Stack
 	•	LLM: Vertex AI (Gemini)
@@ -129,13 +129,13 @@ Final Answer
 	•	Vector DB: Elasticsearch
 	•	Frontend: HTML / CSS / JS
 
-⸻
+---
 ⚠️ Notes
 	•	Ensure Vertex AI credentials are properly configured
 	•	Elasticsearch must be running before ingestion
 	•	First ingestion may take several minutes
 
-⸻
+---
 
 📌 Future Improvements
 	•	Streaming responses (real-time typing)
