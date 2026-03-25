@@ -6,6 +6,10 @@
 ![Elasticsearch](https://img.shields.io/badge/Elasticsearch-orange)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
+## Ask DeepWiki about this!
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Iriansr/vasp-ai-assistant)
+
 ## Demo
 
 ![Demo](example.png)
