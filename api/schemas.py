@@ -4,6 +4,7 @@ from typing import List, Optional
 
 class ChatRequest(BaseModel):
     query: str
+    session_id: Optional[str] = "default_fallback_session"
 
 
 class Source(BaseModel):
