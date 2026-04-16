@@ -3,7 +3,7 @@ import os
 
 
 class VertexConfig(BaseModel):
-    project: str = os.getenv("VERTEX_PROJECT", "irian-sanchez-sandbox")
+    project: str = os.getenv("VERTEX_PROJECT", "your-project")
     location: str = os.getenv("VERTEX_LOCATION", "us-central1")
     batch_size: int = 32
     embedding_model: str = "text-embedding-004"
