@@ -58,7 +58,7 @@ def validation_route(state):
         return "web"
 
     # 🔥 baja confianza
-    if score < 0.6:
+    if score < 0.6 and "VASP" not in question:
         return "web"
     
     if validation.get("valid", False):
@@ -73,26 +73,24 @@ def validation_route(state):
 
     answer = state.get("answer", "")
     validation = state.get("validation", {})
-    attempts = state.get("attepmts",0)
+    attempts = state.get("attempts", 0)
 
-    print("VALIDATION ROUTE DEBUG")
-    print("answer:", answer[:100])
-    print("validation:", validation)
+    print(f"--- VALIDATION ROUTE (Attempt {attempts}) ---")
+    print(f"Valid: {validation.get('valid', False)}, Score: {validation.get('score', 0)}")
+
+    # 🛑 Limit to prevent loops
+    if attempts >= 2:
+        print("Max attempts reached. Ending.")
+        return "__end__"
 
     # CASE 1: correct answer → FINISH
-    if validation.get("valid", False):
+    if validation.get("valid", False) and validation.get("score", 0) >= 0.7:
         return "__end__"
 
-    # CASE 2: it does not explicitly know → fallback web
-    if "i don't know" in answer.lower():
+    # CASE 2: it does not explicitly know or bad quality → fallback web
+    if "i don't know" in answer.lower() or validation.get("score", 0) < 0.6:
+        print("Answer not satisfactory. Falling back to Web Search.")
         return "web"
-
-    # CASE 3: bad quality → fallback
-    if validation.get("score", 0) < 0.6:
-        return "web"
-    
-    if attempts >= 2:
-        return "__end__"
 
     return "__end__"
 

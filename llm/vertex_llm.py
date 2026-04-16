@@ -15,7 +15,7 @@ class VertexLLM:
             location=settings.vertex.location,
         )
 
-        self.model = GenerativeModel("gemini-2.0-flash-001")
+        self.model = GenerativeModel(settings.vertex.generative_model)
 
     def generate(self, prompt):
 
@@ -23,7 +23,7 @@ class VertexLLM:
             prompt,
             generation_config={
                 "temperature": 0,   
-                "max_output_tokens": 1024,
+                "max_output_tokens": 4*2048,
             }
         )
 

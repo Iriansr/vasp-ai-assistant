@@ -19,11 +19,12 @@ class Router:
         ---------------------
         DEFINITION OF "rag":
 
-        Select "rag" ONLY if the query is clearly about:
-        - VASP-specific inputs, tags, or workflows (e.g., INCAR, KPOINTS, POSCAR)
+        Select "rag" if the query is about:
+        - VASP-specific inputs, tags, or workflows (e.g., INCAR, KPOINTS, POSCAR, calculations, bandstructures, etc.)
         - How to run or interpret VASP calculations
         - Surface calculations, slabs, band structures, etc. IN THE CONTEXT OF VASP
         - Questions that can likely be answered using VASP documentation
+        - When the input explicitly mentions "using VASP", "in VASP" or similar queries
 
         ---------------------
         DEFINITION OF "web":

@@ -11,7 +11,7 @@ class VertexEmbedder:
         self,
         project_id: str = settings.vertex.project,
         location: str = settings.vertex.location,
-        model_name: str = settings.vertex.model,
+        model_name: str = settings.vertex.embedding_model,
         batch_size: int = settings.vertex.batch_size,
     ):
         self.project_id = project_id

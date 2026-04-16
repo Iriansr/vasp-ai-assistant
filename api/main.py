@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning, module="google.api_core.*")
+
 from fastapi import FastAPI
 from api.schemas import ChatRequest, ChatResponse
 from fastapi.middleware.cors import CORSMiddleware

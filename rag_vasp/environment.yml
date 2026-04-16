@@ -5,7 +5,7 @@ channels:
   - pytorch
 
 dependencies:
-  - python=3.10
+  - python=3.11
 
   - pip
   - numpy
@@ -17,13 +17,18 @@ dependencies:
   - cpuonly
 
   - pip:
-      - elasticsearch
+      - elasticsearch==8.11.0
       - google-cloud-aiplatform
-      - transformers
-      - FlagEmbedding
+      - transformers==4.45.0
+      - FlagEmbedding==1.2.10
       - sentence-transformers
       - langchain
       - langgraph
       - python-dotenv
       - beautifulsoup4
-      - lxmlc
+      - lxml
+      - fastapi
+      - uvicorn
+      - pydantic
+      - tiktoken
+      - tavily-python

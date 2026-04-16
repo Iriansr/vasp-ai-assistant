@@ -1,20 +1,23 @@
 from elasticsearch import Elasticsearch
 from typing import List
 from tqdm import tqdm
+from rag_vasp.config.settings import settings
 
 
 class ElasticVectorStore:
 
     def __init__(
         self,
-        host="http://127.0.0.1:9200",
-        index_name="vasp_docs",
+        hosts=None,
+        index_name=None,
         embedding_dim=768,
     ):
         
-        self.client = Elasticsearch(host)
-        self.index_name = index_name
+        self.hosts = hosts or settings.elastic.host
+        self.index_name = index_name or settings.elastic.index_name
         self.embedding_dim = embedding_dim
+        
+        self.client = Elasticsearch(self.hosts)
         self.connect()
 
     def connect(self):

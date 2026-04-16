@@ -2,31 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>VASP Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASP AI Assistant</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Markdown -->
+    
+    <!-- Markdown: marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-    <!-- KaTeX -->
+    <!-- LaTeX: KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <!-- Code Highlighting: highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
 
-<div class="chat-container">
+<div class="app-container">
+    <header class="main-header">
+        <div class="logo-section">
+            <span class="logo-icon">⚛️</span>
+            <h1>VASP AI Assistant</h1>
+        </div>
+        <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span class="status-text">System Active</span>
+        </div>
+    </header>
 
-    <div class="header">
-        <span>🟢 VASP Assistant (online)</span>
-    </div>
+    <main id="chat-box" class="chat-area"></main>
 
-    <div id="chat-box" class="chat-box"></div>
-
-<div class="input-container">
-    <textarea id="user-input" placeholder="Ask something..."></textarea>
-    <button onclick="sendMessage()">Send</button>
-</div>
-
+    <footer class="input-area">
+        <div class="input-wrapper">
+            <textarea id="user-input" placeholder="Ask about VASP workflows, surface science, or DFT calculations..." rows="1"></textarea>
+            <button id="send-btn" onclick="sendMessage()">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+            </button>
+        </div>
+        <p class="disclaimer">AI-generated content may require validation. Check VASP documentation for critical tasks.</p>
+    </footer>
 </div>
 
 <script src="script.js"></script>

@@ -1,137 +1,243 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-main: #f8fafc;
+    --bg-header: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --user-msg-bg: #2563eb;
+    --user-msg-text: #ffffff;
+    --bot-msg-bg: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
-
-    background: linear-gradient(
-        135deg,
-        #f0f6ff 0%,
-        #dbeafe 100%
-    ); 
-
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    height: 100vh;
 }
 
-/* centered chat */
-.chat-container {
-    width: 420px;
-    height: 650px;
-
+.app-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-
-    /* glass effect */
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.3);
-
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    background: white;
+    box-shadow: var(--shadow-md);
 }
 
-/* header */
-.header {
+/* Header */
+.main-header {
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 14px;
-
-    background: rgba(255, 255, 255, 0.9);  /* 🔥 blanco */
-    color: black;
-
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-header);
 }
 
-.title {
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.logo-section h1 {
+    font-size: 1.25rem;
     font-weight: 700;
-    font-size: 16px;
-    color: black;
+    letter-spacing: -0.025em;
 }
 
-.status {
-    font-size: 12px;
-    color: #00aa66;
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
 }
 
-/* chat */
-.chat-box {
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* Chat Area */
+.chat-area {
     flex: 1;
     overflow-y: auto;
-    padding: 15px;
-
+    padding: 2rem;
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
+    scroll-behavior: smooth;
 }
 
-/* messages */
+/* Messages */
 .message {
-    margin: 8px 0;
-    padding: 10px 12px;
-    border-radius: 12px;
-    max-width: 80%;
-    font-size: 14px;
+    max-width: 85%;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
-/* user */
-.user {
+.message.user {
     align-self: flex-end;
-    background: rgba(0, 123, 255, 0.8);
-    color: white;
+    background-color: var(--user-msg-bg);
+    color: var(--user-msg-text);
+    border-bottom-right-radius: 0.25rem;
+    box-shadow: var(--shadow-sm);
 }
 
-/* bot */
-.bot {
+.message.bot {
     align-self: flex-start;
-    background: rgba(255, 255, 255, 0.8);
-    color: black;
+    background-color: var(--bot-msg-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 0.25rem;
+    box-shadow: var(--shadow-sm);
 }
 
-/* input */
-.input-container {
+/* Markdown Styling */
+.message blockquote {
+    border-left: 3px solid var(--border-color);
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+    color: var(--text-muted);
+}
+
+.message pre {
+    background: #1e293b;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.message code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
+}
+
+.message p:not(:last-child) {
+    margin-bottom: 0.75rem;
+}
+
+/* Input Area */
+.input-area {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border-color);
+    background: white;
+}
+
+.input-wrapper {
+    position: relative;
     display: flex;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    gap: 0.75rem;
+    align-items: flex-end;
 }
 
-/* input field */
 textarea {
     flex: 1;
-    padding: 12px;
-    border: none;
-    outline: none;
-
-    background: rgba(255, 255, 255, 0.9);  /* 🔥 blanco */
-    color: black;
-
-    border-radius: 10px;
-    margin: 8px;
-
+    padding: 0.75rem 1rem;
+    padding-right: 3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
     resize: none;
-    height: 50px;
     font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    max-height: 200px;
 }
 
-/* button */
-button {
-    background: rgba(0,123,255,0.9);
+textarea:focus {
+    border-color: var(--primary-color);
+}
+
+#send-btn {
+    background: var(--primary-color);
     color: white;
     border: none;
-    padding: 12px;
-    margin: 8px;
-    border-radius: 10px;
+    width: 42px;
+    height: 42px;
+    border-radius: 0.5rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
 }
 
-/* placeholder visible */
-input::placeholder {
-    color: rgba(255,255,255,0.7);
+#send-btn:hover {
+    background: var(--primary-hover);
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+}
+
+/* Sources Styling */
+.sources {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+.sources p {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.sources ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sources li {
+    margin-bottom: 0.25rem;
+}
+
+.sources a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.sources a:hover {
+    text-decoration: underline;
+}
+
+/* General list styling in messages */
+.message ul, .message ol {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
 }

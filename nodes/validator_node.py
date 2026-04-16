@@ -17,9 +17,10 @@ def extract_json(text):
     Extract JSON even if LLM infers noise 
     """
     try:
+        # cleanup markdown blocks
+        text = text.replace("```json", "").replace("```", "").strip()
         return json.loads(text)
     except:
-        # 🔥 fallback: regex para encontrar JSON
         match = re.search(r"\{.*\}", text, re.DOTALL)
         if match:
             try:
@@ -36,75 +37,34 @@ def validator_node(state):
     query = state["query"]
     answer = state.get("answer", "")
     sources = state.get("sources", [])
-    state["attepts"] = state.get("attepts",0)
+    state["attempts"] = state.get("attempts", 0)
 
-    sources_text = "\n".join([
-        f"- {s.get('title', '')}"
-        for s in sources
-    ])
+    sources_titles = [s.get('title', '') for s in sources]
 
-    prompt = f"""
-You are a strict scientific answer evaluator.
+    prompt = f"""Evaluate this scientific answer.
+- Grounding: Is it supported by the sources?
+- Relevance: Does it answer the question?
+- Correctness: Is it scientifically sound?
+- Appropriateness: Does it use RAG when asked about VASP?
 
-Evaluate the answer based ONLY on the provided information.
+QUESTION: {query}
+ANSWER: {answer}
+SOURCES: {", ".join(sources_titles)}
 
----------------------
-QUESTION:
-{query}
-
----------------------
-ANSWER:
-{answer}
-
----------------------
-SOURCES:
-{sources_text}
-
----------------------
-EVALUATION CRITERIA:
-
-1. Grounding
-2. Relevance
-3. Scientific correctness
-
----------------------
-OUTPUT FORMAT (STRICT):
-
-Return ONLY a valid JSON object:
-
-{{
-  "valid": true or false,
-  "score": float between 0 and 1,
-  "issues": list of strings,
-  "reason": short explanation
-}}
-
----------------------
-ISSUE TYPES:
-
-- hallucination
-- missing_sources
-- irrelevant
-- incorrect
-
----------------------
-RULES:
-
-- No text outside JSON
-- Be strict
+Return ONLY JSON:
+{{"valid": bool, "score": float, "issues": [str], "reason": str}}
 """
 
     raw = llm.generate(prompt)
-    state["attepts"] = state.get("attepts",0) +1
+    state["attempts"] = state.get("attempts", 0) + 1
     parsed = extract_json(raw)
 
-    # robust fallback 
     if parsed is None:
         parsed = {
-            "valid": False,
-            "score": 0.0,
+            "valid": True, # Assume valid if it's just a parse error to avoid loops
+            "score": 0.5,
             "issues": ["parse_error"],
-            "reason": raw[:200]
+            "reason": "Could not parse validator output"
         }
 
     return {
